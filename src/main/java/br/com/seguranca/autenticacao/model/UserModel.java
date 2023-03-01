@@ -2,6 +2,7 @@ package br.com.seguranca.autenticacao.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -16,6 +17,11 @@ import java.util.Collection;
 @Table(name = "usuario")
 @Getter
 @Setter
+@JsonIgnoreProperties({
+        "authorities", "password", "username",
+        "accountNonExpired", "accountNonLocked",
+        "credentialsNonExpired", "enabled"
+})
 public class UserModel implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

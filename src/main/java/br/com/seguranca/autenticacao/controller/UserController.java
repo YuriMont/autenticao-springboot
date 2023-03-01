@@ -23,12 +23,12 @@ public class UserController {
     }
 
     @PostMapping("/registrar")
-    public ResponseEntity<UserModel> registrar(@RequestBody UserModel user) {
+    public ResponseEntity<?> registrar(@RequestBody UserModel user) {
         return us.registrar(user);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> logar(@RequestBody LoginFormModel login) {
+    public ResponseEntity<?> logar(@RequestBody LoginFormModel login) {
         return us.logar(login);
     }
     }
